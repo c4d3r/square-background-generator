@@ -14,9 +14,10 @@ canvas.setAttribute("width", wW);
 console.log(wW);
 console.log(wH);
 
-var colors = ["red", "#97D45D"];
+var colors = ["#915DD4", "#97D45D"];
+var colors2 = ["#5DA4D4", "#D45D5D", "#ED8D3E", "#FF7AC8"];
 
-var amountHorizontal = 128;
+var amountHorizontal = 400;
 
 var sizeSquare = wW / amountHorizontal;
 
@@ -25,18 +26,22 @@ var objMatrix = new Matrix(amountHorizontal, amountHorizontal);
 objMatrix.init();
 
 //fill matrix
+var milliseconds1 = (new Date).getTime();
 for(var i = 0; i < amountHorizontal; i++) {
     //fill vertical for this row
     for(var j = 0; j < amountHorizontal; j++) {
         if(i % 2 == 0 && (i % 2 == 0 && j % 2 == 0) || (i % 2 == 1 && (i % 2 == 1 && j % 2 == 1))) {
-            objMatrix.addCell(new Cell(colors[0], i, j));
+            objMatrix.addCell(new Cell(colors[Math.round(Math.random() * 3)], i, j));
         } else {
-            objMatrix.addCell(new Cell(colors[1], i, j));
+            objMatrix.addCell(new Cell(colors2[Math.round(Math.random() * 3)], i, j));
         }
     }
 }
+var milliseconds2 = (new Date).getTime();
+console.log("done: " + (milliseconds2 - milliseconds1));
 objMatrix.display();
-
+var milliseconds3 = (new Date).getTime();
+console.log("done: " + (milliseconds3 - milliseconds2));
 function Cell(color, x, y) {
 
     this.color = color;
