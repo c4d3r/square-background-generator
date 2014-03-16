@@ -1,0 +1,19 @@
+<!DOCTYPE>
+<html>
+    <head>
+        <!-- Load the Paper.js library -->
+        <script type="text/javascript" src="js/paperjs/paper.js"></script>
+        <!-- Load external PaperScript and associate it with myCanvas -->
+        <script type="text/paperscript" src="./js/background.js" canvas="mainCanvas">
+        </script>
+    </head>
+
+    <body>
+        <style>
+            html, body{ margin:0; min-height:100%; min-width:100%;}
+            #mainCanvas{ overflow: hidden; }
+        </style>
+        <canvas id="mainCanvas"></canvas>
+    </body>
+
+</html>
